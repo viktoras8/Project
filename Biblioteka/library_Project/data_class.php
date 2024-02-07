@@ -387,7 +387,6 @@ class data extends db {
                 $issueid=$row['id'];
                 $issuetype=$row['type'];
 
-                // header("location: admin_service_dashboard.php?logid=$logid");
             }
             foreach($recordSetss->fetchAll() as $row) {
                 $bookid=$row['id'];
