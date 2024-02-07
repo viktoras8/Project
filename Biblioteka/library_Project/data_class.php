@@ -269,9 +269,7 @@ class data extends db {
         //     header("Location:otheruser_dashboard.php?msg=fail");
         //  }
         }
-        // if($fine!=0){
-        //     header("Location:otheruser_dashboard.php?userlogid=$userid&msg=fine");
-        // }
+
        
 
     }
