@@ -329,7 +329,7 @@ class data extends db {
                 $issueid=$row['id'];
                 $issuetype=$row['type'];
 
-                
+        
             }
             foreach($recordSetss->fetchAll() as $row) {
                 $bookid=$row['id'];
@@ -339,7 +339,6 @@ class data extends db {
                      $newbookrent=$row['bookrent']+1;
             }
 
-        
             $q="UPDATE book SET bookava='$newbookava', bookrent='$newbookrent' where id='$bookid'";
             if($this->connection->exec($q)){
 
