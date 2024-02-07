@@ -359,9 +359,6 @@ class data extends db {
                header("Location:admin_service_dashboard.php?msg=fail");
             }
 
-
-
-
         }
 
         else {
