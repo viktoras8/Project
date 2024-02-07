@@ -374,7 +374,6 @@ class data extends db {
         $this->$getdate=$getdate;
         $this->$returnDate=$returnDate;
 
-
         $q="SELECT * FROM book where bookname='$book'";
         $recordSetss=$this->connection->query($q);
 
