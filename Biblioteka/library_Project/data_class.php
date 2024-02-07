@@ -364,8 +364,6 @@ class data extends db {
         else {
             header("location: index.php?msg=Invalid Email/password");
         }
-
-
     }
     
     // issue book
