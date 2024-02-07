@@ -413,8 +413,6 @@ class data extends db {
             else{
                header("Location:admin_service_dashboard.php?msg=fail");
             }
-
-
         }
 
         else {
