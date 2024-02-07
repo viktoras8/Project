@@ -309,7 +309,6 @@ class data extends db {
             return $data;
         }
 
-
       function issuebookapprove($book,$userselect,$days,$getdate,$returnDate,$redid){
         $this->$book= $book;
         $this->$userselect=$userselect;
