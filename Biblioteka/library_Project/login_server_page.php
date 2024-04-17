@@ -1,5 +1,4 @@
 <?php
-
 include("data_class.php");
 
 $login_email=$_GET['login_email'];
