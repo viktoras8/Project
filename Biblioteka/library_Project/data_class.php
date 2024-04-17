@@ -65,7 +65,7 @@ class data extends db {
     }
     
     function adminLogin($t1, $t2) {
-        // Šifravimas naudojant SHA-1
+
         $hashed_password = sha1($t2);
     
         $q="SELECT * FROM admin where email='$t1' and pass='$hashed_password'";
