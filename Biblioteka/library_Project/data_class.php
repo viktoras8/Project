@@ -32,7 +32,7 @@ class data extends db {
         $this->email = $email;
         $this->type = $type;
     
-        // Užšifruojame slaptažodį naudodami SHA1 algoritmą
+    
         $hashed_password = sha1($password);
     
         $q = "INSERT INTO userdata(id, name, email, pass, type) VALUES('', '$name', '$email', '$hashed_password', '$type')";
