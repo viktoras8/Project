@@ -152,7 +152,6 @@ td, a{
                 $table.="<td>$row[8]</td>";
                 $table.="<td><a href='otheruser_dashboard.php?returnid=$row[0]&userlogid=$userloginid'><button type='button' class='btn btn-primary'>Return</button></a></td>";
                 $table.="</tr>";
-                // $table.=$row[0];
             }
             $table.="</table>";
 
