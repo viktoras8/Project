@@ -130,7 +130,6 @@ class data extends db {
             $newfine= $fine;
 
             
-                //  $newbookrent=$row['bookrent']+1;
         }
 
 
