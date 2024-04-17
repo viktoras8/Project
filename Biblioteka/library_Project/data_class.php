@@ -45,7 +45,6 @@ class data extends db {
     }
     
     function userLogin($t1, $t2) {
-        // Šifravimas naudojant SHA-1
         $hashed_password = sha1($t2);
     
         $q="SELECT * FROM userdata where email='$t1' and pass='$hashed_password'";
