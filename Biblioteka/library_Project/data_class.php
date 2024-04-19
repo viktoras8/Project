@@ -23,6 +23,7 @@ class data extends db {
 
 
     function __construct() {
+        // echo " constructor ";
         echo "</br></br>";
     }
 
@@ -32,7 +33,7 @@ class data extends db {
         $this->email = $email;
         $this->type = $type;
     
-    
+        // Užšifruojame slaptažodį naudodami SHA1 algoritmą
         $hashed_password = sha1($password);
     
         $q = "INSERT INTO userdata(id, name, email, pass, type) VALUES('', '$name', '$email', '$hashed_password', '$type')";
@@ -45,6 +46,7 @@ class data extends db {
     }
     
     function userLogin($t1, $t2) {
+        // Šifravimas naudojant SHA-1
         $hashed_password = sha1($t2);
     
         $q="SELECT * FROM userdata where email='$t1' and pass='$hashed_password'";
@@ -65,7 +67,7 @@ class data extends db {
     }
     
     function adminLogin($t1, $t2) {
-
+        // Šifravimas naudojant SHA-1
         $hashed_password = sha1($t2);
     
         $q="SELECT * FROM admin where email='$t1' and pass='$hashed_password'";
@@ -130,6 +132,7 @@ class data extends db {
             $newfine= $fine;
 
             
+                //  $newbookrent=$row['bookrent']+1;
         }
 
 
@@ -265,9 +268,13 @@ class data extends db {
     
             header("Location:otheruser_dashboard.php?userlogid=$userid");
          }
-
+        //  else{
+        //     header("Location:otheruser_dashboard.php?msg=fail");
+        //  }
         }
-
+        // if($fine!=0){
+        //     header("Location:otheruser_dashboard.php?userlogid=$userid&msg=fine");
+        // }
        
 
     }
@@ -309,12 +316,14 @@ class data extends db {
             return $data;
         }
 
+      // issue issuebookapprove
       function issuebookapprove($book,$userselect,$days,$getdate,$returnDate,$redid){
         $this->$book= $book;
         $this->$userselect=$userselect;
         $this->$days=$days;
         $this->$getdate=$getdate;
         $this->$returnDate=$returnDate;
+
 
         $q="SELECT * FROM book where bookname='$book'";
         $recordSetss=$this->connection->query($q);
@@ -329,7 +338,7 @@ class data extends db {
                 $issueid=$row['id'];
                 $issuetype=$row['type'];
 
-        
+                // header("location: admin_service_dashboard.php?logid=$logid");
             }
             foreach($recordSetss->fetchAll() as $row) {
                 $bookid=$row['id'];
@@ -339,6 +348,7 @@ class data extends db {
                      $newbookrent=$row['bookrent']+1;
             }
 
+        
             $q="UPDATE book SET bookava='$newbookava', bookrent='$newbookrent' where id='$bookid'";
             if($this->connection->exec($q)){
 
@@ -359,11 +369,16 @@ class data extends db {
                header("Location:admin_service_dashboard.php?msg=fail");
             }
 
+
+
+
         }
 
         else {
             header("location: index.php?msg=Invalid Email/password");
         }
+
+
     }
     
     // issue book
@@ -373,6 +388,7 @@ class data extends db {
         $this->$days=$days;
         $this->$getdate=$getdate;
         $this->$returnDate=$returnDate;
+
 
         $q="SELECT * FROM book where bookname='$book'";
         $recordSetss=$this->connection->query($q);
@@ -387,6 +403,7 @@ class data extends db {
                 $issueid=$row['id'];
                 $issuetype=$row['type'];
 
+                // header("location: admin_service_dashboard.php?logid=$logid");
             }
             foreach($recordSetss->fetchAll() as $row) {
                 $bookid=$row['id'];
@@ -413,6 +430,8 @@ class data extends db {
             else{
                header("Location:admin_service_dashboard.php?msg=fail");
             }
+
+
         }
 
         else {

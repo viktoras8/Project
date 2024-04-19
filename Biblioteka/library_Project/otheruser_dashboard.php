@@ -14,7 +14,7 @@ $userloginid=$_SESSION["userid"] = $_GET['userlogid'];
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
       <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
       <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
+        <!-- <link rel="stylesheet" href="style.css"> -->
     </head>
     <style>
 body{
@@ -152,6 +152,7 @@ td, a{
                 $table.="<td>$row[8]</td>";
                 $table.="<td><a href='otheruser_dashboard.php?returnid=$row[0]&userlogid=$userloginid'><button type='button' class='btn btn-primary'>Return</button></a></td>";
                 $table.="</tr>";
+                // $table.=$row[0];
             }
             $table.="</table>";
 
