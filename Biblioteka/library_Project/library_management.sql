@@ -1,7 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.3
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
-
+--
+-- Host: 127.0.0.1
+-- Generation Time: Apr 19, 2024 at 09:13 AM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -26,15 +30,15 @@ SET time_zone = "+00:00";
 CREATE TABLE `admin` (
   `id` int(11) NOT NULL,
   `email` varchar(25) NOT NULL,
-  `pass` varchar(25) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `pass` char(40) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `admin`
 --
 
 INSERT INTO `admin` (`id`, `email`, `pass`) VALUES
-(1, 'admin@gmail.com', 'f865b53623b121fd34ee5426c');
+(1, 'admin@gmail.com', 'f865b53623b121fd34ee5426c792e5c33af8c227');
 
 -- --------------------------------------------------------
 
@@ -54,16 +58,15 @@ CREATE TABLE `book` (
   `bookquantity` varchar(25) NOT NULL,
   `bookava` int(11) NOT NULL,
   `bookrent` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `book`
 --
 
 INSERT INTO `book` (`id`, `bookpic`, `bookname`, `bookdetail`, `bookaudor`, `bookpub`, `branch`, `bookprice`, `bookquantity`, `bookava`, `bookrent`) VALUES
-(4, 'arrow.jpg', 'Scott Gallagher', '1st edition', 'no idea', 'Suscipit', 'it', '756', '20', 16, 4),
-(5, 'logo.png', 'Ferris Mclaughlin', 'Qui ex dolor fugiat ', 'Est voluptates offi', 'Dolorem earum accusa', 'electrical', '264', '157', 157, 0),
-(6, 'arrow.png', 'harry', 'Ea quas nulla ration', 'Ut dolorem culpa ex', 'Eum proident quidem', 'it', '76', '3', 2, 1);
+(7, 'haris.jpg', 'Haris Poteris', 'fantasy book', 'Ken Follett', 'Alma Littera', 'Fantasy', '20', '10', 9, 1),
+(9, 'pukuotukas.jpg', 'Mikė Pūkuotukas', 'pasakų herojus meškiukas', 'Dzoana Rouling', 'Alma Littera', 'other', '10', '10', 10, 0);
 
 -- --------------------------------------------------------
 
@@ -81,19 +84,14 @@ CREATE TABLE `issuebook` (
   `issuedate` varchar(25) NOT NULL,
   `issuereturn` varchar(25) NOT NULL,
   `fine` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `issuebook`
 --
 
 INSERT INTO `issuebook` (`id`, `userid`, `issuename`, `issuebook`, `issuetype`, `issuedays`, `issuedate`, `issuereturn`, `fine`) VALUES
-(2, 1, 'salman', 'Rich daddy poor dady', 'student', 3, '30/03/2021', '02/04/2021', 1800),
-(3, 2, 'Randall Burch', 'Scott Gallagher', 'teacher', 4, '30/03/2021', '03/04/2021', 0),
-(6, 1, 'salman', 'Scott Gallagher', 'student', 7, '30/03/2021', '06/04/2021', 1800),
-(9, 5, 'salmannew', 'Scott Gallagher', 'teacher', 21, '30/03/2021', '20/04/2021', 0),
-(10, 1, 'salman', 'Scott Gallagher', 'student', 7, '01/04/2021', '08/04/2021', 0),
-(11, 1, 'salman', 'harry', 'student', 7, '01/04/2021', '08/04/2021', 0);
+(12, 6, 'Jonas', 'Haris Poteris', 'student', 7, '17/04/2024', '24/04/2024', 0);
 
 -- --------------------------------------------------------
 
@@ -109,7 +107,7 @@ CREATE TABLE `requestbook` (
   `usertype` varchar(25) NOT NULL,
   `bookname` varchar(25) NOT NULL,
   `issuedays` varchar(25) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -121,19 +119,18 @@ CREATE TABLE `userdata` (
   `id` int(11) NOT NULL,
   `name` varchar(25) NOT NULL,
   `email` varchar(25) NOT NULL,
-  `pass` varchar(25) NOT NULL,
+  `pass` char(40) DEFAULT NULL,
   `type` varchar(25) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `userdata`
 --
 
 INSERT INTO `userdata` (`id`, `name`, `email`, `pass`, `type`) VALUES
-(1, 'salman', 'idno22382@gmail.com', '123', 'student'),
-(2, 'Randall Burch', 'voqo@mailinator.com', 'Ratione nulla dolore', 'teacher'),
-(3, 'Gabriel Daugherty', 'bipacer@mailinator.com', 'Voluptas explicabo ', 'teacher'),
-(5, 'salmannew', '1234@gmail.com', '123', 'teacher');
+(6, 'Jonas', 'jonas@gmail.com', '35a2c6fae61f8077aab61faa4019722abf05093c', 'student'),
+(7, 'Antanas', 'antanas@gmail.com', 'f6cac8d477ecdd07f40d6549515d53e183a3d04f', 'teacher'),
+(8, 'jurgis', 'jurgis@gmail.com', 'd63c5a65646cbda5f185be9a189c8423af221371', 'student');
 
 --
 -- Indexes for dumped tables
@@ -186,25 +183,25 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `book`
 --
 ALTER TABLE `book`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `issuebook`
 --
 ALTER TABLE `issuebook`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `requestbook`
 --
 ALTER TABLE `requestbook`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `userdata`
 --
 ALTER TABLE `userdata`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables
